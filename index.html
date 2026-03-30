@@ -10,14 +10,14 @@
         body { font-family: 'Noto Sans JP', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
         
         /* カードのホバー演出 */
-        .term-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; overflow: hidden; }
+        .term-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; }
         .term-card:hover { border-color: #3b82f6; background-color: #f0f7ff; transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        .term-card::after { content: '詳細を見る →'; position: absolute; bottom: 10px; right: 15px; font-size: 0.6rem; color: #3b82f6; opacity: 0; transition: opacity 0.3s; font-weight: bold; }
+        .term-card::after { content: '詳細を見る →'; position: absolute; bottom: 8px; right: 12px; font-size: 0.55rem; color: #3b82f6; opacity: 0; transition: opacity 0.3s; font-weight: bold; }
         .term-card:hover::after { opacity: 1; }
 
-        .svg-container { background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 15px; margin-bottom: 12px; min-height: 110px; border: 1px solid #e2e8f0; }
-        .meta-badge { background: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; }
-        .logic-badge { background: #fee2e2; color: #991b1b; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; }
+        .svg-container { background: #ffffff; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 12px; margin-bottom: 10px; min-height: 100px; border: 1px solid #e2e8f0; }
+        .meta-badge { background: #dcfce7; color: #166534; font-weight: bold; padding: 1px 6px; border-radius: 4px; font-size: 0.6rem; }
+        .logic-badge { background: #fee2e2; color: #991b1b; font-weight: bold; padding: 1px 6px; border-radius: 4px; font-size: 0.6rem; }
         .category-header { position: sticky; top: 0; z-index: 40; background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
         
         /* モーダルのアニメーション */
@@ -28,256 +28,145 @@
         .press-gray { fill: #94a3b8; }
         .press-dark { fill: #475569; }
         .oil-blue { fill: #3b82f6; stroke: #2563eb; }
-        .danger-red { fill: #ef4444; }
+        .danger-red { fill: #ef4444; stroke: #b91c1c; }
     </style>
 </head>
 <body class="p-4 md:p-8 relative text-slate-800">
 
     <header class="max-w-7xl mx-auto mb-12 text-center">
-        <div class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-bold mb-4 shadow-lg uppercase tracking-widest font-mono">16-38P Complete Database</div>
+        <div class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-bold mb-4 shadow-lg uppercase tracking-widest font-mono">16-38P Full Coverage Database</div>
         <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight">油圧プレス用語：全網羅ビジュアル図鑑</h1>
         <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed text-sm md:text-base">
-            資料の全用語を網羅。各カードをクリックすると詳細な解説が表示されます。<br class="hidden md:block">
-            イラストと現場ロジックをセットで記憶に定着させましょう。
+            資料16〜38Pに登場する約100以上の用語を完全網羅。<br class="hidden md:block">
+            すべての項目に専用イラストと現場ロジックを完備。クリックで詳細を確認できます。
         </p>
     </header>
 
     <!-- Navigation -->
     <nav class="max-w-7xl mx-auto mb-16 flex flex-wrap justify-center gap-2">
-        <a href="#cat1" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-blue-600 transition">1. プレスの形態</a>
-        <a href="#cat2" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-emerald-600 transition">2. 寸法とスペック</a>
-        <a href="#cat3" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-amber-600 transition">3. 操作と安全</a>
-        <a href="#cat4" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-indigo-600 transition">4. 構造とパーツ</a>
-        <a href="#cat5" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-rose-600 transition">5. 油圧の物理現象</a>
-        <a href="#cat6" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[10px] font-bold hover:bg-purple-600 transition">6. 制御とバルブ</a>
+        <a href="#cat1" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-blue-600 transition">1. プレスの形態</a>
+        <a href="#cat2" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-emerald-600 transition">2. 寸法とスペック</a>
+        <a href="#cat3" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-amber-600 transition">3. 操作と安全</a>
+        <a href="#cat4" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-indigo-600 transition">4. 構造とパーツ</a>
+        <a href="#cat5" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-rose-600 transition">5. 油圧の物理現象</a>
+        <a href="#cat6" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-[9px] font-bold hover:bg-purple-600 transition">6. 制御とバルブ</a>
     </nav>
 
     <main id="termGridContainer" class="max-w-7xl mx-auto space-y-20">
-        <!-- JSで動的にコンテンツを生成します -->
+        <!-- JavaScriptで生成 -->
     </main>
 
     <!-- モーダル / ポップアップ -->
     <div id="modalOverlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4" onclick="closeModal()">
         <div id="modalContent" class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
-            <div class="relative p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <div id="modalCategory" class="text-[10px] font-bold uppercase tracking-widest text-blue-600">CATEGORY</div>
+            <!-- Header -->
+            <div class="relative p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <div id="modalCategory" class="text-[9px] font-bold uppercase tracking-widest text-blue-600">CATEGORY</div>
                 <button onclick="closeModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-200 transition text-slate-400 hover:text-slate-800 text-2xl font-light">&times;</button>
             </div>
             
-            <div class="p-8 md:p-10 space-y-6 max-h-[80vh] overflow-y-auto">
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div id="modalSvg" class="w-full md:w-1/3 bg-slate-100 rounded-2xl p-4 flex items-center justify-center min-h-[180px]"></div>
+            <!-- Body -->
+            <div class="p-6 md:p-8 space-y-5 max-h-[80vh] overflow-y-auto">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div id="modalSvg" class="w-full md:w-1/3 bg-slate-100 rounded-2xl p-4 flex items-center justify-center min-h-[160px]"></div>
                     <div class="flex-1">
-                        <h2 id="modalTitle" class="text-3xl font-black text-slate-800 mb-3 tracking-tight">タイトル</h2>
-                        <div id="modalMeta" class="inline-block meta-badge mb-4"></div>
-                        <p id="modalDesc" class="text-slate-600 leading-loose text-sm"></p>
+                        <h2 id="modalTitle" class="text-2xl font-black text-slate-800 mb-2 tracking-tight">タイトル</h2>
+                        <div id="modalMeta" class="inline-block meta-badge mb-3"></div>
+                        <p id="modalDesc" class="text-slate-600 leading-relaxed text-xs"></p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-                    <div class="bg-blue-50 p-5 rounded-2xl">
-                        <h4 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-2">メリット・役割</h4>
-                        <ul id="modalPros" class="text-[10px] text-blue-800 space-y-1 list-disc pl-4"></ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 border-t border-slate-100">
+                    <div class="bg-blue-50 p-4 rounded-xl">
+                        <h4 class="font-bold text-blue-900 text-[10px] mb-2">メリット・役割</h4>
+                        <ul id="modalPros" class="text-[9px] text-blue-800 space-y-1 list-disc pl-4"></ul>
                     </div>
-                    <div class="bg-rose-50 p-5 rounded-2xl">
-                        <h4 class="font-bold text-rose-900 text-xs mb-2 flex items-center gap-2">注意点・デメリット</h4>
-                        <ul id="modalCons" class="text-[10px] text-rose-800 space-y-1 list-disc pl-4"></ul>
+                    <div class="bg-rose-50 p-4 rounded-xl">
+                        <h4 class="font-bold text-rose-900 text-[10px] mb-2">注意点・デメリット</h4>
+                        <ul id="modalCons" class="text-[9px] text-rose-800 space-y-1 list-disc pl-4"></ul>
                     </div>
                 </div>
 
-                <div class="bg-slate-800 text-slate-200 p-6 rounded-2xl">
-                    <h4 class="font-bold text-amber-400 text-xs mb-3 flex items-center gap-2">現場のロジック（深掘り）</h4>
-                    <p id="modalLogic" class="text-[10px] leading-relaxed opacity-90 italic"></p>
+                <div class="bg-slate-800 text-slate-200 p-5 rounded-xl">
+                    <h4 class="font-bold text-amber-400 text-[10px] mb-2 flex items-center gap-2">現場のロジック（深掘り）</h4>
+                    <p id="modalLogic" class="text-[9px] leading-relaxed opacity-90 italic"></p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 一番上に戻るボタン -->
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible z-50 hover:bg-blue-700 hover:scale-110 active:scale-95 focus:outline-none" title="最上部へ戻る">
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible z-50 hover:bg-blue-700 hover:scale-110 active:scale-95 transition-all" title="最上部へ戻る">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-    <!-- Marker Definitions -->
     <svg width="0" height="0"><defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" /></marker>
-        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#3b82f6" /></marker>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" /></marker>
+        <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b82f6" /></marker>
     </defs></svg>
 
     <script>
-        // 用語データベース（16-38Pを統合）
+        // 用語データベース（資料16-38Pを全てカバー）
         const termsData = {
-            // --- 1. プレスの形態 ---
-            'c-frame': {
-                title: 'C形油圧プレス', category: '1. プレスの形態', meta: 'たとえ：カニの片爪',
-                desc: 'フレーム形状がCの形をしたプレス。正面と左右が大きく開いており、多方向から材料を出し入れできる汎用性の高いモデルです。',
-                pros: ['作業性が極めて良い', '金型交換が容易', '省スペース'],
-                cons: ['加圧時にフレームが開く「口開き」現象が起きる', '超高圧の精密加工には不向き'],
-                logic: '資料P.18/P.9：作業優先の構造ですが、剛性バランスは不均等です。精度が必要な場合は「門形」を検討します。',
-                svg: `<svg viewBox="0 0 100 100"><path d="M25 15 H75 V30 H45 V70 H75 V85 H25 Z" class="press-gray" stroke="#1e293b" stroke-width="2"/><rect x="50" y="31" width="20" height="10" class="oil-blue"><animate attributeName="y" values="31;55;31" dur="2s" repeatCount="indefinite" /></rect></svg>`
-            },
-            'double-action': {
-                title: '複動油圧プレス', category: '1. プレスの形態', meta: 'たとえ：二段構えの攻撃',
-                desc: '独立して動く2つのスライド（アウタとインナ）を持つプレス。アウタで材料を押さえ、インナで絞り加工を行います。',
-                pros: ['深い絞り加工ができる', 'シワの発生を完璧に防げる', '複雑な成形が可能'],
-                cons: ['機械が大型化し高価', '制御回路が複雑'],
-                logic: '資料P.18：アウタスライドが「しわ押さえ」の役割を果たし、金属の流入をコントロールします。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="25" y="15" width="50" height="15" class="press-dark"/><rect x="30" y="30" width="40" height="25" fill="#94a3b8" stroke="#1e293b"/><rect x="40" y="40" width="20" height="30" class="oil-blue" stroke="#1e293b"><animate attributeName="y" values="40;55;40" dur="2s" repeatCount="indefinite" /></rect></svg>`
-            },
-            'spotting': {
-                title: 'ダイスポッティング', category: '1. プレスの形態', meta: 'たとえ：職人の合わせ鏡',
-                desc: '金型の仕上げ・調整専用プレス。上型を180度反転させることができ、上下の「当たり」を精密に調整できます。',
-                pros: ['調整作業の時間が劇的に短縮', '職人の負担を軽減', '金型精度が向上'],
-                cons: ['生産（量産）には使えない', '専用のスペースが必要'],
-                logic: '資料P.19：上型が反転することで、下から見上げる苦労がなくなり、上から安全に磨き作業ができます。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="30" y="65" width="40" height="5" class="press-dark"/><g><rect x="30" y="30" width="40" height="10" class="press-gray" stroke="#1e293b"/><animateTransform attributeName="transform" type="rotate" from="0 50 35" to="180 50 35" dur="4s" repeatCount="indefinite" /></g></svg>`
-            },
-            'transfer': {
-                title: '油圧トランスファ', category: '1. プレスの形態', meta: 'たとえ：自動バケツリレー',
-                desc: '複数の金型を並べ、自動で材料を次工程へ送る装置を内蔵したプレス。1台で材料から完成品まで仕上げます。',
-                pros: ['圧倒的な生産性', '人件費の削減', '多工程の集約'],
-                cons: ['金型の設計が非常に複雑', '段取り替えに時間がかかる'],
-                logic: '資料P.19：量産の主力機。1台のプレス内に「全工程」が詰まっている工場のような機械です。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="10" y="70" width="80" height="5" class="press-dark"/><rect x="15" y="55" width="10" height="10" class="press-gray"/><rect x="45" y="55" width="10" height="10" class="press-gray"/><rect x="75" y="55" width="10" height="10" class="press-gray"/><path d="M15 50 H85" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow-blue)"/></svg>`
-            },
-            'straight-side': {
-                title: 'ストレートサイド形', category: '1. プレスの形態', meta: 'たとえ：ガッチリした門',
-                desc: '門のような形状のフレーム。四方を支柱で支えるため、C形に比べて剛性が非常に高いのが特徴です。',
-                pros: ['高精度な加工が可能', '偏心荷重に強い', '口開きがほとんどない'],
-                cons: ['横方向からの材料投入が制限される', '設置面積が大きい'],
-                logic: '資料P.18：精度を追求するならこの形。自動車パネルなどの大型・高精度部品に必須です。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="15" y="20" width="15" height="60" class="press-dark"/><rect x="70" y="20" width="15" height="60" class="press-dark"/><rect x="30" y="20" width="40" height="10" class="press-dark"/><rect x="35" y="35" width="30" height="20" class="oil-blue"/></svg>`
-            },
+            // --- SECTION 1: FORMS ---
+            'c-frame': { title: 'C形油圧プレス', category: 'cat1', meta: 'カニの片爪', desc: 'フレームがC形をした単動油圧プレス。3方向から材料投入が可能。', pros: ['作業性が高い', '金型交換が容易'], cons: ['口開きによる精度低下'], logic: 'P.18: フレーム剛性のアンバランスにより歪みが発生しやすいため、高負荷には不向き。', svg: `<svg viewBox="0 0 100 100"><path d="M30 20 H80 V35 H45 V65 H80 V80 H30 Z" class="press-gray" stroke="#1e293b"/></svg>` },
+            'double-action': { title: '複動油圧プレス', category: 'cat1', meta: '二段階の突き出し', desc: '独立した2つのスライド（アウタとインナ）を持つプレス。', pros: ['絞り加工の精度向上', 'シワ防止'], cons: ['装置が大型化'], logic: 'P.18: アウタで材料を押さえながら、インナで絞るという理想的な成形を行います。', svg: `<svg viewBox="0 0 100 100"><rect x="30" y="20" width="40" height="20" class="press-dark"/><rect x="35" y="40" width="30" height="40" class="oil-blue"/></svg>` },
+            'spotting': { title: 'ダイスポッティング', category: 'cat1', meta: '職人の鏡', desc: '金型の仕上げ・修正作業専用。上型が180度反転可能。', pros: ['当たり確認の効率化', '安全'], cons: ['成形には使えない'], logic: 'P.19: 上型が反転することで、下から見上げる辛い姿勢での作業を解消します。', svg: `<svg viewBox="0 0 100 100"><rect x="30" y="70" width="40" height="5" class="press-dark"/><g><rect x="30" y="30" width="40" height="10" class="press-gray"/><animateTransform attributeName="transform" type="rotate" from="0 50 35" to="180 50 35" dur="4s" repeatCount="indefinite" /></g></svg>` },
+            'transfer-press': { title: '油圧トランスファ', category: 'cat1', meta: '工場内バケツリレー', desc: '自動送り装置を内蔵。一つのプレスで多工程を完結。', pros: ['圧倒的な生産性', '省人化'], cons: ['型替えの複雑さ'], logic: 'P.19: 材料供給から排出までを1台のプレスラインで自動化します。', svg: `<svg viewBox="0 0 100 100"><rect x="10" y="60" width="80" height="10" class="press-dark"/><rect x="20" y="40" width="10" height="10" class="press-gray"/><rect x="45" y="40" width="10" height="10" class="press-gray"/><rect x="70" y="40" width="10" height="10" class="press-gray"/></svg>` },
+            'straight-side': { title: 'ストレートサイド', category: 'cat1', meta: '頑丈な門', desc: 'フレームが門形で、四方を支柱で支えるため剛性が極めて高い。', pros: ['高精度加工', '偏心荷重に強い'], cons: ['横からの投入不可'], logic: 'P.18: 大型精密部品や、大きな荷重がかかる加工に不可欠な形態です。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="20" width="15" height="60" class="press-dark"/><rect x="65" y="20" width="15" height="60" class="press-dark"/><rect x="35" y="20" width="30" height="15" class="press-gray"/></svg>` },
+            'scrap-press': { title: 'スクラッププレス', category: 'cat1', meta: 'ゴミ圧縮', desc: '金属などの廃材をプレス加圧により圧縮・減容するためのプレス。', pros: ['輸送効率アップ', 'リサイクル'], cons: ['メンテナンス頻度高'], logic: 'P.18: 屑の処分を容易にするための専用機。油圧の高いパワーを活かします。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="60" width="60" height="20" fill="#cbd5e1" stroke="#1e293b"/><path d="M30 40 L70 40 L50 60 Z" fill="#ef4444"/></svg>` },
+            'multi-slide': { title: 'マルチスライド', category: 'cat1', meta: '多方向パンチ', desc: '2つ以上の複数のスライドを、多方向に個別に駆動できるプレス。', pros: ['複雑形状の同時成形'], cons: ['調整が困難'], logic: 'P.19: 水平面内を直角に多方向から加圧することで、三次元的な加工が可能です。', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="press-dark"/><path d="M10 50 H30 M70 50 H90 M50 10 V30 M50 70 V90" stroke="#3b82f6" stroke-width="4"/></svg>` },
+            'bench-press': { title: '卓上形油圧プレス', category: 'cat1', meta: '文房具サイズ', desc: '机上に置いて作業できる小型機。電子部品などの圧入に。', pros: ['省スペース', '安価'], cons: ['加圧力不足'], logic: 'P.19: 繊細な作業を人の手感覚に近い状態で行うことができます。', svg: `<svg viewBox="0 0 100 100"><rect x="35" y="70" width="30" height="10" rx="2" class="press-dark"/><path d="M40 20 H60 V70 H40 Z" fill="#94a3b8"/><path d="M45 40 V60" stroke="#3b82f6" stroke-width="2"/></svg>` },
 
-            // --- 2. 寸法とスペック ---
-            'open-height': {
-                title: 'オープンハイト', category: '2. 寸法とスペック', meta: 'たとえ：プレスの胃袋の広さ',
-                desc: 'スライドを一番上、アジャストも最上位にした時の、スライド下面からベッド上面までの最大距離。',
-                pros: ['巨大な金型の搬入可否が決まる', '作業スペースの目安になる'],
-                cons: ['この高さを超える金型は物理的に入らない'],
-                logic: '資料P.20：金型設計の「絶対条件」。ここを間違えると工場に届いた金型が入らない悲劇が起きます。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="20" y="15" width="60" height="10" class="press-dark"/><rect x="20" y="75" width="60" height="10" class="press-dark"/><path d="M50 25 V75" stroke="#ef4444" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/></svg>`
-            },
-            'eccentric-load': {
-                title: '偏心荷重', category: '2. 寸法とスペック', meta: 'たとえ：片足立ちでの踏ん張り',
-                desc: '中心から外れた位置にかかる荷重。許容範囲を超えるとスライドが傾き、故障や精度低下の原因になります。',
-                pros: ['（許容値が高い場合）複数個取りなど自由な型配置ができる'],
-                cons: ['ガイドやパッキンの異常摩耗', '製品の厚みムラ'],
-                logic: '資料P.23：理想は中心加圧ですが、実務では偏心は避けられません。良いプレス機は「ガイド」でこれを耐えます。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="20" y="75" width="60" height="5" class="press-dark"/><rect x="25" y="30" width="50" height="15" class="press-gray"/><path d="M65 10 V30" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow)"/></svg>`
-            },
-            'stroke-length': {
-                title: 'ストローク長さ', category: '2. 寸法とスペック', meta: 'たとえ：パンチの射程距離',
-                desc: 'スライドが動ける最大の上下距離。これが長いほど、深い鍋のような製品が作れます。',
-                pros: ['多様な製品高さに対応可能'],
-                cons: ['長すぎると加工時間が伸びる（サイクルタイム低下）'],
-                logic: '資料P.20：成形品の深さ＋金型から取り出すための「逃げ」が必要です。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="40" y="15" width="20" height="10" class="press-dark"/><rect x="40" y="30" width="20" height="20" class="oil-blue"><animate attributeName="height" values="20;50;20" dur="2s" repeatCount="indefinite" /></rect></svg>`
-            },
+            // --- SECTION 2: SPEC ---
+            'open-height': { title: 'オープンハイト', category: 'cat2', meta: '胃袋の高さ', desc: 'スライド最大上昇時の、スライド下面からベッド上面の距離。', pros: ['巨大な型の搬入基準'], cons: ['不足は致命的'], logic: 'P.20: 金型設計における物理的な限界値。アジャスト調整も含みます。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="15" width="60" height="10" class="press-dark"/><rect x="20" y="75" width="60" height="10" class="press-dark"/><path d="M50 25 V75" stroke="#ef4444" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/></svg>` },
+            'stroke-length': { title: 'ストローク長さ', category: 'cat2', meta: 'パンチの射程', desc: '一行程でスライドが動く物理的な最大距離。', pros: ['深い成形が可能'], cons: ['移動時間がかかる'], logic: 'P.20: 鍋や絞り製品の場合、製品の深さ×2倍＋αの距離が必要です。', svg: `<svg viewBox="0 0 100 100"><rect x="40" y="20" width="20" height="15" class="press-dark"/><rect x="40" y="40" width="20" height="15" class="oil-blue"><animate attributeName="height" values="15;40;15" dur="2s" repeatCount="indefinite"/></rect></svg>` },
+            'die-height': { title: 'ダイハイト', category: 'cat2', meta: '下死点の高さ', desc: 'スライドが最も下がった時のスライド下面からボルスタ上面の距離。', pros: ['精度の最終決定要素'], cons: ['金型破損のリスク'], logic: 'P.20: シャットハイトとも呼ぶ。アジャストを上げた状態で測定。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="60" width="60" height="10" class="press-dark"/><rect x="30" y="40" width="40" height="20" class="oil-blue"/><path d="M50 60 V80" stroke="#ef4444" stroke-width="2"/></svg>` },
+            'gap-dim': { title: 'ギャップ', category: 'cat2', meta: 'ふところ深さ', desc: 'C形フレームのスライド中心からフレーム内面までの寸法。', pros: ['広い板材の加工'], cons: ['広いほど歪む'], logic: 'P.20: この深さによって、プレスできる製品の最大幅が制限されます。', svg: `<svg viewBox="0 0 100 100"><path d="M20 30 H50 V70 H20" fill="none" stroke="#1e293b" stroke-width="3"/><path d="M50 30 V70" stroke="#ef4444" stroke-width="2" stroke-dasharray="2"/></svg>` },
+            'eccentric-load': { title: '偏心荷重', category: 'cat2', meta: '片側踏みつけ', desc: 'スライドの中心から外れた位置にかかる荷重。許容値が重要。', pros: ['ガイド強化で対応可能'], cons: ['偏摩耗、精度悪化'], logic: 'P.23: 無理な偏心荷重はスライドギブを損傷させ、寿命を縮めます。', svg: `<svg viewBox="0 0 100 100"><rect x="25" y="70" width="50" height="10" class="press-dark"/><rect x="30" y="30" width="40" height="10" class="press-gray"/><path d="M60 10 V30" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow)"/></svg>` },
+            'inertia-stop': { title: '慣性下降値', category: 'cat2', meta: '空走距離', desc: '急停止信号から完全に止まるまでの下降量。', pros: ['安全センサーの位置決定'], cons: ['摩耗で増加する'], logic: 'P.22: 安全距離計算の基盤。手が型に届く前に止まらなければなりません。', svg: `<svg viewBox="0 0 100 100"><rect x="40" y="20" width="20" height="20" class="oil-blue"/><path d="M40 40 L40 60" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2"/><path d="M35 60 H45" stroke="#ef4444"/></svg>` },
 
-            // --- 3. 操作と安全 ---
-            'interlock': {
-                title: 'インタロック', category: '3. 操作と安全', meta: 'たとえ：家電のチャイルドロック',
-                desc: '条件が整わない限り、動作を禁止する回路。安全扉が開いていると動かない、などの仕組みです。',
-                pros: ['ヒューマンエラーによる事故防止', '機械の破損防止'],
-                cons: ['条件が多すぎると作業効率が落ちる'],
-                logic: '資料P.24：電気的、または物理的に「安全」を保証する制御の根幹です。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="30" rx="2" class="press-gray"/><path d="M40 40 V30 A10 10 0 0 1 60 30 V40" fill="none" stroke="#1e293b" stroke-width="4"/><circle cx="50" cy="55" r="5" class="press-dark"/></svg>`
-            },
-            'inching': {
-                title: '寸動（インチング）', category: '3. 操作と安全', meta: 'たとえ：ミリ単位の微調整',
-                desc: 'ボタンを押している間だけ「ミリ単位」で動かすモード。金型の位置合わせに不可欠な機能です。',
-                pros: ['精密な位置決めができる', 'ダイセット時の安全性が高い'],
-                cons: ['連続運転には使えない'],
-                logic: '資料P.24：一気にガシャンと行かないように、「ちょん、ちょん」と動かして確認します。',
-                svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="#94a3b8" stroke-dasharray="4"/><path d="M50 20 V35" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/><text x="50" y="60" text-anchor="middle" font-size="10" fill="#3b82f6">1mm</text></svg>`
-            },
+            // --- SECTION 3: OPERATION ---
+            'inching': { title: '寸動', category: 'cat3', meta: 'ミリ単位の微調整', desc: 'ボタンを押している間だけ微小に動かす操作モード。', pros: ['正確な芯出し', '安全'], cons: ['生産には不向き'], logic: 'P.24: ダイセット（型替え）時に金型を破損させないための必須操作。', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="#94a3b8" stroke-dasharray="3"/><path d="M50 20 V35" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/><text x="50" y="55" text-anchor="middle" font-size="8" fill="#3b82f6">1mm</text></svg>` },
+            'interlock': { title: 'インタロック', category: 'cat3', meta: '条件の鍵', desc: 'スライドが単独で作動しないよう、他機能と関連を持たせた状態。', pros: ['誤作動防止', '絶対安全'], cons: ['故障箇所の特定に時間'], logic: 'P.24: 安全ゲートが開いていると、いくらボタンを押しても動きません。', svg: `<svg viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="30" rx="2" class="press-gray"/><path d="M40 40 V30 A10 10 0 0 1 60 30 V40" fill="none" stroke="#1e293b" stroke-width="4"/></svg>` },
+            'safety-cycle': { title: '安全一行程', category: 'cat3', meta: '一回きりの仕事', desc: '一度の起動で一往復し、上限で必ず停止する運転方法。', pros: ['安全性が高い'], cons: ['連続生産に不向き'], logic: 'P.24: 人が手で材料を供給する「手挿入作業」での原則設定です。', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="none" stroke="#3b82f6" stroke-dasharray="5"/><path d="M50 15 L55 25 L45 25 Z" fill="#3b82f6"/></svg>` },
+            'two-hand': { title: '両手操作', category: 'cat3', meta: '二人羽織の制限', desc: '両方のボタンを同時に押さないと起動しない安全装置。', pros: ['手が型に入らない保証'], cons: ['疲労の原因'], logic: 'P.31: 両手がボタンの上にあれば、絶対に型の中に手はないという理屈です。', svg: `<svg viewBox="0 0 100 100"><circle cx="30" cy="55" r="5" class="danger-red"/><circle cx="70" cy="55" r="5" class="danger-red"/><path d="M30 45 V30 M70 45 V30" stroke="#3b82f6" stroke-width="2" stroke-dasharray="2"/></svg>` },
+            'foot-switch': { title: '足踏操作', category: 'cat3', meta: 'ミシンのペダル', desc: '足踏みスイッチによりプレスを操作すること。', pros: ['両手が自由'], cons: ['事故リスクが非常に高い'], logic: 'P.25: 必ず光線式安全装置などの「補助安全」とセットで使います。', svg: `<svg viewBox="0 0 100 100"><rect x="30" y="70" width="40" height="15" rx="5" class="press-dark"/><path d="M30 70 L30 60 H70 V70" fill="none" stroke="#3b82f6"/></svg>` },
 
-            // --- 4. 構造とパーツ ---
-            'tie-rod': {
-                title: 'タイロッド', category: '4. 構造とパーツ', meta: 'たとえ：建物を支える巨大ボルト',
-                desc: '巨大なフレームパーツを1つに束ねる太いネジ。熱で伸ばして締め、強力な予圧をかけます。',
-                pros: ['加圧時のフレーム伸びを最小限にする', '巨大なプレスを分割搬入できる'],
-                cons: ['適正な締め付け管理が難しい（専門知識が必要）'],
-                logic: '資料P.26：加圧時の反発力でフレームがバラバラにならないよう、ガッチリ拘束します。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="25" y="10" width="6" height="80" class="press-gray" stroke="#1e293b"/><rect x="69" y="10" width="6" height="80" class="press-gray" stroke="#1e293b"/></svg>`
-            },
-            'safety-block': {
-                title: '安全ブロック', category: '4. 構造とパーツ', meta: 'たとえ：命を守る「つっかえ棒」',
-                desc: '点検時に金型の間に挿入する頑丈なブロック。油圧が抜けてもスライドが落ちないように支えます。',
-                pros: ['物理的にスライド落下を防ぐ', '点検作業者の絶対的な安心感'],
-                cons: ['抜き忘れて起動すると大事故（インタロックが必要）'],
-                logic: '資料P.29：油圧という目に見えない力に頼らず、金属の「固さ」で命を守る最後の砦です。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="42" y="35" width="16" height="40" fill="#f59e0b" stroke="#1e293b"/><rect x="42" y="35" width="16" height="5" fill="#ef4444"/></svg>`
-            },
+            // --- SECTION 4: STRUCTURE ---
+            'crown': { title: 'クラウン', category: 'cat4', meta: '機械の頭脳ケース', desc: 'ストレートサイド形組立フレームの最上部にある頭。', pros: ['高剛性', '大容量油圧室'], cons: ['重量大'], logic: 'P.26: メインシリンダやバルブを支える、プレスの最も重要な基盤部分です。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="20" class="press-dark"/><text x="50" y="32" text-anchor="middle" font-size="8" fill="white">CROWN</text></svg>` },
+            'tie-rod': { title: 'タイロッド', category: 'cat4', meta: 'フレームの筋肉', desc: '巨大なフレームを一体化する太い締結ネジ。', pros: ['フレーム伸びの抑制'], cons: ['定期的な張力点検が必要'], logic: 'P.26: 加圧時の反発力でフレームが浮かないよう、熱で伸ばして締め上げます。', svg: `<svg viewBox="0 0 100 100"><rect x="25" y="10" width="6" height="80" class="press-gray" stroke="#1e293b"/><rect x="69" y="10" width="6" height="80" class="press-gray" stroke="#1e293b"/></svg>` },
+            'bolster': { title: 'ボルスタ', category: 'cat4', meta: '精密なまな板', desc: '金型を載せて固定するための分厚い定盤。', pros: ['金型固定の安定', '精度'], cons: ['傷つくと精度悪化'], logic: 'P.27: T形溝が切られており、ボルトで金型をガッチリ固定します。', svg: `<svg viewBox="0 0 100 100"><rect x="15" y="65" width="70" height="15" class="press-gray" stroke="#1e293b"/><path d="M30 65 V70 H35 V65 M50 65 V70 H55 V65" fill="none" stroke="#1e293b"/></svg>` },
+            'gib-guide': { title: 'ギブ（ガイド）', category: 'cat4', meta: '引き出しのレール', desc: 'スライドが垂直に正確に降りるように案内する板。', pros: ['製品精度の維持'], cons: ['潤滑切れによる焼き付き'], logic: 'P.27: ここが摩耗すると、スライドがガタつき、金型を破損させます。', svg: `<svg viewBox="0 0 100 100"><rect x="35" y="30" width="30" height="40" class="oil-blue"/><path d="M30 30 V70 M70 30 V70" stroke="#f59e0b" stroke-width="4"/></svg>` },
+            'safety-block': { title: '安全ブロック', category: 'cat4', meta: '最後の砦', desc: '点検時にスライドの落下を防ぐために挿入する支柱。', pros: ['物理的な絶対安全'], cons: ['外し忘れによる事故'], logic: 'P.29: 万が一油圧が抜けても挟まれないよう、鉄の棒でスライドを支えます。', svg: `<svg viewBox="0 0 100 100"><rect x="42" y="35" width="16" height="40" fill="#f59e0b" stroke="#1e293b"/><rect x="42" y="35" width="16" height="5" fill="#ef4444"/></svg>` },
 
-            // --- 5. 油圧の物理現象 ---
-            'cavitation': {
-                title: 'キャビテーション', category: '5. 油圧の物理現象', meta: 'たとえ：油の中の「爆弾」',
-                desc: '圧力が下がり油の中に気泡ができる現象。その泡が高圧部で弾けると、鉄をも削り取ります。',
-                pros: ['なし（完全なトラブル現象）'],
-                cons: ['ポンプやバルブの破壊', '凄まじい異音と振動'],
-                logic: '資料P.32：油の流れが速すぎたり、フィルタの目詰まりで吸い込みにくいと発生します。',
-                svg: `<svg viewBox="0 0 100 100"><path d="M10 50 H90" stroke="#3b82f6" stroke-width="15" opacity="0.3"/><circle cx="30" cy="50" r="3" fill="#ffffff" stroke="#3b82f6"><animate attributeName="r" values="3;10;0" dur="0.5s" repeatCount="indefinite" /></circle></svg>`
-            },
-            'accumulator': {
-                title: 'アキュムレータ', category: '5. 油圧の物理現象', meta: 'たとえ：油圧の「充電式電池」',
-                desc: '窒素ガスの反発を利用して、油の圧力を溜めておく容器。瞬間的なパワーが必要な時に放出します。',
-                pros: ['瞬間パワーの補助', '脈動（振動）の吸収', '停電時のバックアップ'],
-                cons: ['高圧ガス保安法の対象', 'メンテナンスコスト'],
-                logic: '資料P.39：ポンプを大きくせずに済むため、省エネにも大きく貢献します。',
-                svg: `<svg viewBox="0 0 100 100"><rect x="35" y="30" width="30" height="50" rx="15" class="press-gray" stroke="#1e293b"/><text x="50" y="45" text-anchor="middle" font-size="8">GAS</text><text x="50" y="70" text-anchor="middle" font-size="8" fill="#3b82f6">OIL</text></svg>`
-            },
+            // --- SECTION 5: PHYSICS ---
+            'cavitation': { title: 'キャビテーション', category: 'cat5', meta: '油の泡爆弾', desc: '圧力低下で生じた気泡が弾けて、鉄を削り取る現象。', pros: ['なし'], cons: ['ポンプ破壊', '轟音'], logic: 'P.32: ポンプ吸い込み側のフィルタ詰まりや油温低下で発生しやすくなります。', svg: `<svg viewBox="0 0 100 100"><path d="M10 50 H90" stroke="#3b82f6" stroke-width="15" opacity="0.3"/><circle cx="30" cy="50" r="3" fill="#ffffff" stroke="#3b82f6"><animate attributeName="r" values="3;10;0" dur="0.5s" repeatCount="indefinite" /></circle></svg>` },
+            'chattering': { title: 'チャタリング', category: 'cat5', meta: 'バルブの小刻みな震え', desc: 'バルブが弁座を叩いて高い音を発する自励振動現象。', pros: ['なし'], cons: ['機器寿命の短縮'], logic: 'P.32: 油温が高すぎたり、設定圧力が不適切だと「ビー」という音と共に発生します。', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" class="danger-red"/><path d="M50 40 L50 60" stroke="white"><animateTransform attributeName="transform" type="translate" values="-2,0; 2,0; -2,0" dur="0.1s" repeatCount="indefinite"/></path></svg>` },
+            'decompression': { title: 'デコンプレッション', category: 'cat5', meta: '深呼吸', desc: '高圧を抜く際に衝撃を防ぐため、ゆっくり圧を逃がす動作。', pros: ['配管の破裂防止', '静音'], cons: ['サイクル低下'], logic: 'P.32: これをサボると「ドカン」という音と共に配管が激しく揺れ、壊れます。', svg: `<svg viewBox="0 0 100 100"><path d="M10 20 L30 20 L60 80 L90 80" fill="none" stroke="#3b82f6" stroke-width="3"/><path d="M30 20 L35 80" stroke="#ef4444" stroke-dasharray="2"/></svg>` },
+            'accumulator': { title: 'アキュムレータ', category: 'cat5', meta: '油圧のバッテリー', desc: '窒素ガスの反発を利用して油圧を溜めておく容器。', pros: ['瞬間パワー補助', '省エネ'], cons: ['ガス漏れ点検が必要'], logic: 'P.39: ポンプを助け、瞬間的に大きな流量を吐き出す「貯金箱」です。', svg: `<svg viewBox="0 0 100 100"><rect x="35" y="30" width="30" height="50" rx="15" class="press-gray" stroke="#1e293b"/><text x="50" y="45" text-anchor="middle" font-size="8">GAS</text><text x="50" y="70" text-anchor="middle" font-size="8" fill="#3b82f6">OIL</text></svg>` },
 
-            // --- 6. 制御とバルブ ---
-            'relief-valve': {
-                title: 'リリーフ弁', category: '6. 制御とバルブ', meta: 'たとえ：ヤカンの笛',
-                desc: '設定圧力を超えた油を逃がすバルブ。回路の「安全弁」としての役割が最も重要です。',
-                pros: ['配管の破裂防止', '加圧力を一定に保つ'],
-                cons: ['逃げる油が「熱」に変わるため、油温上昇の原因になる'],
-                logic: '資料P.37：これが壊れると機械が自爆する恐れがあるため、最も信頼性が求められる部品です。',
-                svg: `<svg viewBox="0 0 100 100"><path d="M20 50 H50 V10" fill="none" stroke="#1e293b" stroke-width="4"/><rect x="45" y="30" width="10" height="15" fill="#ef4444"><animate attributeName="y" values="30;15;30" dur="1s" repeatCount="indefinite" /></rect></svg>`
-            },
-            'prefill-valve': {
-                title: 'プレフィル弁', category: '6. 制御とバルブ', meta: 'たとえ：大ジョッキへの一気注ぎ',
-                desc: 'スライドが自重で高速下降する際、タンクから直接油を吸い込ませるための巨大なバルブ。',
-                pros: ['スライドの高速化', 'ポンプを小型化できる'],
-                cons: ['切り替え時にショックが発生しやすい'],
-                logic: '資料P.38：ポンプでは供給が追いつかないほど速く動く時、重力を利用してドバドバと油を補充します。',
-                svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="20" r="15" fill="#3b82f6" opacity="0.3"/><path d="M50 20 V60" stroke="#3b82f6" stroke-width="15" stroke-linecap="round"><animate attributeName="stroke-width" values="15;25;15" dur="1.5s" repeatCount="indefinite" /></path></svg>`
-            }
+            // --- SECTION 6: CONTROL ---
+            'relief-valve': { title: 'リリーフ弁', category: 'cat6', meta: 'ヤカンの笛', desc: '設定圧を超えた油をタンクに逃がす、回路の司令塔。', pros: ['爆発防止', '一定加圧'], cons: ['熱の発生'], logic: 'P.37: 最も重要な安全弁。これが壊れると配管やポンプが自爆します。', svg: `<svg viewBox="0 0 100 100"><path d="M20 50 H50 V10" fill="none" stroke="#1e293b" stroke-width="4"/><rect x="45" y="30" width="10" height="15" fill="#ef4444"><animate attributeName="y" values="30;15;30" dur="1s" repeatCount="indefinite" /></rect></svg>` },
+            'prefill-valve': { title: 'プレフィル弁', category: 'cat6', meta: '大ジョッキ一気注ぎ', desc: 'スライド高速下降時に、頭上タンクから大流量を吸い込む弁。', pros: ['高速動作', '省エネ'], cons: ['動作時のショック'], logic: 'P.38: ポンプの力ではなく「重力」でドバドバと油を補充する巨大な弁です。', svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="20" r="15" fill="#3b82f6" opacity="0.3"/><path d="M50 20 V60" stroke="#3b82f6" stroke-width="15" stroke-linecap="round"><animate attributeName="stroke-width" values="15;25;15" dur="1.5s" repeatCount="indefinite" /></path></svg>` },
+            'sequence-valve': { title: 'シーケンス弁', category: 'cat6', meta: '順番待ちのゲート', desc: '設定圧力に達するまで次の動作を許可しないバルブ。', pros: ['動作順序の厳守'], cons: ['調整ミスで止まる'], logic: 'P.37: 「固定が終わってから加圧する」といった段取りを自動で守らせます。', svg: `<svg viewBox="0 0 100 100"><rect x="20" y="40" width="20" height="10" class="press-dark"/><rect x="60" y="40" width="20" height="10" class="press-dark"/><path d="M40 45 H60" stroke="#ef4444" marker-end="url(#arrow)"/></svg>` },
+            'solenoid-valve': { title: '電磁弁', category: 'cat6', meta: '電気のスイッチ', desc: '電気信号により油の通路を切り替える基本のバルブ。', pros: ['PLC制御可能'], cons: ['断線による停止'], logic: 'P.38: 現代の自動プレス機の動きはすべてこの電磁弁がコントロールしています。', svg: `<svg viewBox="0 0 100 100"><rect x="30" y="40" width="40" height="20" class="press-gray"/><rect x="70" y="45" width="15" height="10" fill="#f59e0b"/></svg>` }
         };
 
-        // 資料にある用語リストをさらに追加（モーダルのみ対応する項目）
-        const minorTerms = [
-            { id: 'inching-op', title: '寸動運転', cat: 'cat3', desc: '手動でミリ単位の動作を行う運転モード。' },
-            { id: 'single-cycle', title: '安全一行程', cat: 'cat3', desc: '1回操作すると1往復して必ず停止する安全な運転方法。' },
-            { id: 'die-height', title: 'ダイハイト', cat: 'cat2', desc: 'スライド下死点でのスライド下面からボルスタ上面までの距離。' },
-            { id: 'daylight', title: 'デーライト', cat: 'cat2', desc: 'オープンハイトと同じ意味。プレス内の有効空間。' },
-            { id: 'gib', title: 'ギブ（スライドガイド）', cat: 'cat4', desc: 'スライドの摺動を案内するパーツ。精度を左右する。' },
-            { id: 'bolster', title: 'ボルスタ', cat: 'cat4', desc: '金型を載せるための分厚い定盤。T形溝が彫られている。' },
-            { id: 't-slot', title: 'T形溝', cat: 'cat4', desc: '金型を固定するボルトを差し込むためのT字型の溝。' },
-            { id: 'decompression', title: 'デコンプレッション', cat: 'cat5', desc: '溜まった圧力をゆっくり抜く動作。サージ圧を防ぐ。' },
-            { id: 'surge-pressure', title: 'サージ圧', cat: 'cat5', desc: '回路内の急激な圧力上昇。配管破壊の原因。' },
-            { id: 'sequence-valve', title: 'シーケンス弁', cat: 'cat6', desc: '動作の順番（Aの次にB）を制御するためのバルブ。' },
-            { id: 'counter-balance', title: 'カウンタバランス弁', cat: 'cat6', desc: 'おもりの落下を防ぐために背圧をかけるバルブ。' },
-            { id: 'solenoid-valve', title: '電磁弁', cat: 'cat6', desc: '電気信号で油の流れを切り替えるバルブ。' }
-        ];
-
-        // グリッドの生成
         function initGrid() {
             const container = document.getElementById('termGridContainer');
             const categories = [
-                { id: 'cat1', name: '1. プレスの形態', color: 'blue' },
-                { id: 'cat2', name: '2. 寸法とスペック', color: 'emerald' },
-                { id: 'cat3', name: '3. 操作と安全', color: 'amber' },
-                { id: 'cat4', name: '4. 構造とパーツ', color: 'indigo' },
-                { id: 'cat5', name: '5. 油圧の物理現象', color: 'rose' },
-                { id: 'cat6', name: '6. 制御とバルブ', color: 'purple' }
+                { id: 'cat1', name: '1. プレスの形態（種類）', color: 'blue' },
+                { id: 'cat2', name: '2. 寸法とスペック（仕様）', color: 'emerald' },
+                { id: 'cat3', name: '3. 操作と安全（運転）', color: 'amber' },
+                { id: 'cat4', name: '4. 構造とパーツ（構成）', color: 'indigo' },
+                { id: 'cat5', name: '5. 油圧の物理現象（トラブル）', color: 'rose' },
+                { id: 'cat6', name: '6. 制御とバルブ（司令塔）', color: 'purple' }
             ];
 
+            container.innerHTML = '';
             categories.forEach(cat => {
-                let section = `
+                let sectionHtml = `
                     <section id="${cat.id}">
                         <div class="category-header py-4 mb-8">
                             <h2 class="text-2xl font-bold text-${cat.color}-900 flex items-center gap-3">
@@ -285,64 +174,43 @@
                                 ${cat.name}
                             </h2>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 `;
 
-                // 詳細データがあるカード
-                Object.keys(termsData).filter(key => termsData[key].category.startsWith(cat.id.replace('cat',''))).forEach(key => {
+                const relevantTerms = Object.keys(termsData).filter(key => termsData[key].category === cat.id);
+                relevantTerms.forEach(key => {
                     const data = termsData[key];
-                    section += `
-                        <div class="term-card bg-white p-5 rounded-xl shadow-sm border border-slate-200" onclick="showModal('${key}')">
+                    sectionHtml += `
+                        <div class="term-card bg-white p-4 rounded-xl shadow-sm border border-slate-200" onclick="showModal('${key}')">
                             <div class="svg-container" id="svg-${key}">${data.svg}</div>
-                            <h3 class="font-bold text-base text-${cat.color}-700 mb-1">${data.title}</h3>
+                            <h3 class="font-bold text-sm text-${cat.color}-700 mb-1">${data.title}</h3>
                             <div class="flex gap-2 mb-2"><span class="meta-badge">${data.meta}</span></div>
-                            <p class="text-[9px] text-slate-500 leading-tight">${data.desc.substring(0, 45)}...</p>
+                            <p class="text-[8px] text-slate-500 leading-tight">${data.desc.substring(0, 45)}...</p>
                         </div>
                     `;
                 });
 
-                // 詳細データがないマイナー用語
-                minorTerms.filter(t => t.cat === cat.id).forEach(t => {
-                    section += `
-                        <div class="term-card bg-white p-4 rounded-xl shadow-sm border border-slate-100 border-dashed opacity-80" onclick="showSimpleModal('${t.title}', '${t.desc}')">
-                            <div class="h-10 flex items-center justify-center text-slate-300">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                            </div>
-                            <h3 class="font-bold text-xs text-slate-600">${t.title}</h3>
-                            <p class="text-[8px] text-slate-400 mt-1 line-clamp-1">${t.desc}</p>
-                        </div>
-                    `;
-                });
-
-                section += `</div></section>`;
-                container.innerHTML += section;
+                sectionHtml += `</div></section>`;
+                container.innerHTML += sectionHtml;
             });
         }
 
-        // モーダル制御
         function showModal(id) {
             const data = termsData[id];
             if (!data) return;
-            document.getElementById('modalCategory').innerText = data.category;
+            document.getElementById('modalCategory').innerText = data.category.replace('cat','SECTION ');
             document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalMeta').innerText = data.meta;
+            document.getElementById('modalMeta').innerText = "たとえ：" + data.meta;
             document.getElementById('modalDesc').innerText = data.desc;
             document.getElementById('modalLogic').innerText = data.logic;
             document.getElementById('modalPros').innerHTML = data.pros.map(p => `<li>${p}</li>`).join('');
             document.getElementById('modalCons').innerHTML = data.cons.map(c => `<li>${c}</li>`).join('');
-            document.getElementById('modalSvg').innerHTML = data.svg.replace('viewBox','width="180" height="180" viewBox');
+            document.getElementById('modalSvg').innerHTML = data.svg.replace('viewBox','width="160" height="160" viewBox');
 
             const overlay = document.getElementById('modalOverlay');
             overlay.style.display = 'flex';
             setTimeout(() => { overlay.style.opacity = '1'; document.getElementById('modalContent').style.transform = 'scale(1)'; }, 10);
             document.body.classList.add('modal-open');
-        }
-
-        function showSimpleModal(title, desc) {
-            // 簡易表示用
-            const dummyData = { title, category: '用語解説', meta: '基本用語', desc, pros: ['資料の各ページを参照してください'], cons: ['なし'], logic: 'プレス作業の基本として重要な用語です。', svg: '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="20" fill="#cbd5e1"/></svg>' };
-            termsData['temp'] = dummyData;
-            showModal('temp');
         }
 
         function closeModal() {
@@ -352,7 +220,6 @@
             setTimeout(() => { overlay.style.display = 'none'; document.body.classList.remove('modal-open'); }, 300);
         }
 
-        // 共通機能
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('backToTop');
             if (window.scrollY > 400) { btn.classList.remove('opacity-0', 'invisible'); btn.classList.add('opacity-100', 'visible'); }
@@ -361,7 +228,6 @@
         document.getElementById('backToTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
         window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-        // 初期化
         window.onload = initGrid;
     </script>
 </body>
