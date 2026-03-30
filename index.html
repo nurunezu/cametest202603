@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>油圧プレス用語：全網羅ビジュアル図鑑</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .term-card:hover { border-color: #3b82f6; background-color: #f0f7ff; transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .term-card { transition: all 0.3s ease; }
+        .svg-container { background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 20px; margin-bottom: 15px; min-height: 140px; }
+        .meta-badge { background: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+        .logic-badge { background: #fee2e2; color: #991b1b; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+        .category-header { position: sticky; top: 0; z-index: 50; background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="max-w-7xl mx-auto mb-12 text-center">
+        <div class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4 shadow-lg uppercase tracking-widest">Hydraulic Press Visual Glossary</div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight">油圧プレス用語：全網羅ビジュアル図鑑</h1>
+        <p class="text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            PDFの用語集（16〜38P）を完全に視覚化。
+            すべての用語に「イラスト・例え・理由」を完備し、直感的な記憶をサポートします。
+        </p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="max-w-7xl mx-auto mb-16 flex flex-wrap justify-center gap-2">
+        <a href="#cat1" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-blue-600 transition">1. プレスの形態</a>
+        <a href="#cat2" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-emerald-600 transition">2. 寸法とスペック</a>
+        <a href="#cat3" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-amber-600 transition">3. 動作と安全</a>
+        <a href="#cat4" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-indigo-600 transition">4. 機械の構成パーツ</a>
+        <a href="#cat5" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-rose-600 transition">5. 油圧の物理トラブル</a>
+        <a href="#cat6" class="px-4 py-2 bg-slate-800 text-white rounded-lg text-xs font-bold hover:bg-purple-600 transition">6. 制御とバルブ</a>
+    </nav>
+
+    <main class="max-w-7xl mx-auto space-y-32">
+
+        <!-- 1. プレスの形態 -->
+        <section id="cat1">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-blue-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-blue-600 rounded-full"></span>
+                    1. 液圧プレス用語（プレスの種類）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <path d="M20 20 H80 V35 H35 V65 H80 V80 H20 Z" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
+                            <rect x="55" y="36" width="15" height="15" fill="#3b82f6" opacity="0.8">
+                                <animate attributeName="y" values="36;50;36" dur="2s" repeatCount="indefinite" />
+                            </rect>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">C形 / 門形 / コラム形</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：カニの片爪 vs 両腕</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        フレームの「骨組み」の違い。C形は作業しやすいが、強く押すと口が開くように歪む。門形（SS）はガッチリしていて歪まず精密。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="10" y="20" width="80" height="10" fill="#64748b"/>
+                            <rect x="20" y="35" width="15" height="40" fill="#94a3b8" stroke="#1e293b"/>
+                            <rect x="42" y="35" width="15" height="40" fill="#94a3b8" stroke="#1e293b"/>
+                            <rect x="64" y="35" width="15" height="40" fill="#94a3b8" stroke="#1e293b"/>
+                            <path d="M15 55 H85" stroke="#3b82f6" stroke-width="3" stroke-dasharray="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">トランスファプレス</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：バケツリレー</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        複数の工程を横に並べ、自動で材料を次へ送る仕組み。大量生産で、人手をかけずに複雑な形を一気に作るのに向く。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="30" y="20" width="40" height="60" fill="none" stroke="#64748b" stroke-width="2"/>
+                            <rect x="35" y="30" width="30" height="40" fill="#94a3b8" opacity="0.5"/>
+                            <rect x="35" y="30" width="30" height="10" fill="#3b82f6">
+                                <animateTransform attributeName="transform" type="rotate" from="0 50 35" to="180 50 35" dur="3s" repeatCount="indefinite" />
+                            </rect>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">ダイスポッティング</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：職人の「合わせ鏡」</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        上型が180度反転する。金型の最終調整（スポッティング）で、上型と下型の「当たり」を楽に、正確に確認するための専用機。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="25" y="70" width="50" height="5" fill="#1e293b"/>
+                            <path d="M10 70 L25 70 M75 70 L90 70" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+                            <path d="M50 70 Q50 30 80 30" fill="none" stroke="#ef4444" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">ストレッチフォーミング</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：シーツのしわ伸ばし</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        板の両端を引っ張りながら型に押し付ける。航空機の外板など、大きな曲面をシワなくきれいに成形するための手法。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="35" y="60" width="30" height="20" fill="#cbd5e1" stroke="#1e293b"/>
+                            <rect x="40" y="30" width="20" height="30" fill="#3b82f6">
+                                <animate attributeName="height" values="30;45;30" dur="2s" repeatCount="indefinite" />
+                            </rect>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-blue-700 mb-2">卓上形プレス</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：文房具のホッチキス</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        机の上に乗るほど小型。電子部品の圧入や小さな金具の曲げなど、大きな力を必要としない繊細な作業に特化。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. 寸法・能力 -->
+        <section id="cat2">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-emerald-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-emerald-600 rounded-full"></span>
+                    2. プレス機械の仕様用語（スペック）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="15" width="60" height="10" fill="#64748b"/>
+                            <rect x="20" y="75" width="60" height="10" fill="#64748b"/>
+                            <path d="M50 25 V75" stroke="#ef4444" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-emerald-700 mb-2">オープンハイト / デーライト</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：本棚の棚の間隔</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        「全開」にした時の隙間の高さ。この高さより背の高い金型は物理的に中に入れることができない。プレスの「胃袋」の大きさ。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="35" y="10" width="30" height="10" fill="#64748b"/>
+                            <rect x="40" y="20" width="20" height="40" fill="#3b82f6">
+                                <animate attributeName="height" values="40;20;40" dur="2s" repeatCount="indefinite" />
+                            </rect>
+                            <path d="M70 20 V60" stroke="#10b981" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-emerald-700 mb-2">ストローク長さ</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：パンチを振る距離</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        スライドが上下に動ける距離。長いほど深い鍋やバケツを作れる。逆に足りないと、製品を金型から取り出す隙間がなくなる。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="70" width="60" height="10" fill="#64748b"/>
+                            <rect x="40" y="20" width="20" height="40" fill="#3b82f6"/>
+                            <path d="M30 30 L50 20 L70 30" fill="none" stroke="#ef4444" stroke-width="4"/>
+                            <text x="50" y="15" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="bold">BAD BALANCE</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-emerald-700 mb-2">偏心荷重（へんしんかじゅう）</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：片足立ちでの踏みつけ</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        スライドの真ん中から外れた位置に力がかかること。片減りやガイドの損傷、金型のズレの原因になり、機械の寿命を縮める。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="40" y="20" width="20" height="30" fill="#3b82f6"/>
+                            <path d="M40 50 L40 70" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2"/>
+                            <path d="M60 50 L60 70" stroke="#f59e0b" stroke-width="2" stroke-dasharray="2"/>
+                            <text x="50" y="80" text-anchor="middle" fill="#f59e0b" font-size="8">BRAKE DISTANCE</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-emerald-700 mb-2">慣性下降値 / 急停止時間</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：車の制動距離</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        止まれ！と合図が出てから実際に止まるまでの距離。安全装置のセンサー位置を決めるための、命に関わる重要な数値。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. 動作・安全 -->
+        <section id="cat3">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-amber-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-amber-600 rounded-full"></span>
+                    3. プレス機械の操作用語（安全と運転）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="30" cy="50" r="15" fill="#f59e0b"/>
+                            <circle cx="70" cy="50" r="15" fill="#f59e0b"/>
+                            <path d="M30 50 L70 50" stroke="#1e293b" stroke-width="2" stroke-dasharray="2"/>
+                            <text x="50" y="85" text-anchor="middle" fill="#1e293b" font-size="10" font-weight="bold">両手を使え！</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-amber-700 mb-2">両手操作式安全装置</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：二重の鍵</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        両手で同時にボタンを押さないと動かない。両手がボタンの上にある＝「金型の中に手が入っていない」ことを物理的に保証する。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" fill="#e2e8f0"/>
+                            <path d="M15 30 L85 30 M15 50 L85 50 M15 70 L85 70" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+                            <circle cx="50" cy="50" r="10" fill="#ef4444" opacity="0.3">
+                                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1s" repeatCount="indefinite" />
+                            </circle>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-amber-700 mb-2">光線式安全装置</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：防犯レーザーセンサー</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        目に見えない光のカーテン。手がそこを横切ると瞬時に機械を止める。物理的な扉がなくても「危険エリア」への侵入を防ぐ命綱。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#94a3b8" stroke-dasharray="2"/>
+                            <path d="M50 20 L50 35 M50 65 L50 80" stroke="#f59e0b" stroke-width="4"/>
+                            <text x="50" y="55" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="bold">STEP</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-amber-700 mb-2">寸動（インチング） / インチ運転</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：動画のコマ送り</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        ボタンを押している間だけ「ミリ単位」で動かす。金型を合わせる（ダイセット）時、ガシャンといかないよう慎重に位置を確認する。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="30" y="30" width="40" height="40" fill="#64748b"/>
+                            <path d="M45 45 L55 55 M55 45 L45 55" stroke="white" stroke-width="4"/>
+                            <rect x="48" y="20" width="4" height="10" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-amber-700 mb-2">インタロック / キーロック</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：電子レンジの自動OFF</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        「条件が揃わないと絶対動かない」仕組み。鍵がない、扉が開いている等の状態で勝手に動くのを防ぎ、他人の不用意な操作から守る。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="45" y="70" width="10" height="20" fill="#64748b"/>
+                            <path d="M40 70 H60" stroke="#3b82f6" stroke-width="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-amber-700 mb-2">足踏操作（フートスイッチ）</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：ミシンのペダル</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        両手で材料を保持したまま運転できるが、その分リスクも高い。必ずガードや光線安全装置とセットで使用するのが鉄則。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. 機械パーツ -->
+        <section id="cat4">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-indigo-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-indigo-600 rounded-full"></span>
+                    4. 主要構成パーツと付属品（機械の構造）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="10" y="60" width="80" height="15" fill="#475569"/>
+                            <rect x="25" y="60" width="3" height="15" fill="#1e293b"/>
+                            <rect x="50" y="60" width="3" height="15" fill="#1e293b"/>
+                            <rect x="75" y="60" width="3" height="15" fill="#1e293b"/>
+                            <rect x="20" y="45" width="60" height="15" fill="#3b82f6" rx="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">ボルスタ / T形溝</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：精密なまな板</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        金型を乗せる分厚い鉄板。
+                        T形溝にボルトを差し込んで金型をガッチリ固定する。ここが少しでも歪むと製品にムラが出てしまう。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="75" width="60" height="10" fill="#475569"/>
+                            <path d="M40 95 V75 M60 95 V75" stroke="#ef4444" stroke-width="4">
+                                <animate attributeName="d" values="M40 95 V75;M40 85 V75;M40 95 V75" dur="1s" repeatCount="indefinite" />
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">ダイクッション / ノックアウト</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：下から押し上げる座布団</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        絞り中に材料に下から適度な圧力をかけてシワを防ぐ。終わったらピンで製品を突き落として金型から外す、プレスの「裏方」の主役。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="10" width="60" height="10" fill="#64748b"/>
+                            <rect x="20" y="80" width="60" height="10" fill="#64748b"/>
+                            <line x1="25" y1="20" x2="25" y2="80" stroke="#1e293b" stroke-width="4"/>
+                            <line x1="75" y1="20" x2="75" y2="80" stroke="#1e293b" stroke-width="4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">タイロッド</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：建物を支える鉄筋</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        分割されたフレームを一体化する巨大なネジ。
+                        熱をかけて締め上げ、プレス中の強烈な反発力でフレームがバラバラにならないようガッチリ拘束する。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="30" y="30" width="40" height="40" fill="#3b82f6"/>
+                            <rect x="25" y="30" width="5" height="40" fill="#f59e0b"/>
+                            <rect x="70" y="30" width="5" height="40" fill="#f59e0b"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">ギブ（スライドガイド）</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：引き出しのレール</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        スライドがまっすぐ降りるように案内する板。
+                        ここがすり減るとスライドがガタつき、金型の精度が落ちたり、刃先を破損させる原因になる。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="10" width="60" height="10" fill="#cbd5e1"/>
+                            <rect x="20" y="80" width="60" height="10" fill="#cbd5e1"/>
+                            <rect x="40" y="30" width="20" height="40" fill="#fbbf24" stroke="#1e293b" stroke-width="2"/>
+                            <text x="50" y="55" text-anchor="middle" fill="#1e293b" font-size="8" font-weight="bold">SAFETY STOP</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-indigo-700 mb-2">安全ブロック</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：つっかえ棒</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        金型の交換や点検の際、万が一油圧が抜けてスライドが落ちてきても挟まれないように物理的に支える、最後の砦。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. 油圧物理 -->
+        <section id="cat5">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-rose-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-rose-600 rounded-full"></span>
+                    5. 油圧用語（物理現象とトラブル）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="10" y="40" width="80" height="20" fill="#e2e8f0" stroke="#64748b"/>
+                            <circle cx="30" cy="50" r="3" fill="#3b82f6" opacity="0.6">
+                                <animate attributeName="r" values="3;6;0" dur="0.5s" repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="60" cy="48" r="4" fill="#3b82f6" opacity="0.6">
+                                <animate attributeName="r" values="4;7;0" dur="0.8s" repeatCount="indefinite" />
+                            </circle>
+                            <text x="50" y="75" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="bold">泡が弾けて壊す！</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-rose-700 mb-2">キャビテーション / 空気混入</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：サイダーのしゅわしゅわ</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        油の中に泡ができる。その泡が弾ける衝撃（超高圧）は鉄を削り取るほど凄まじく、ポンプをガリガリに削り破壊してしまう。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <path d="M10 80 L30 80 L35 20 L40 80 L90 80" fill="none" stroke="#ef4444" stroke-width="3"/>
+                            <path d="M10 85 L90 85" stroke="#cbd5e1" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-rose-700 mb-2">サージ圧 / デコンプレッション</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：炭酸を急に開ける「プシュッ」</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        高圧の油を一気に抜くと衝撃（サージ）で配管が壊れる。
+                        上がり始めに「ひと呼吸(デコンプ)」置いてゆっくり圧を抜くのが、機械に優しい動き。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="30" width="60" height="40" fill="#e2e8f0" stroke="#64748b"/>
+                            <path d="M30 75 Q40 90 50 75 Q60 60 70 75" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                            <circle cx="30" cy="75" r="2" fill="#3b82f6"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-rose-700 mb-2">ドレン / 漏れ</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：おねしょ / 排水路</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        隙間から逃げた油の帰り道。本来の仕事をする油が漏れすぎるとパワーが出なくなり、漏れた場所は熱を持つので故障の前兆になる。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. 制御・バルブ -->
+        <section id="cat6" class="pb-20">
+            <div class="category-header py-4 mb-10">
+                <h2 class="text-3xl font-bold text-purple-900 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-purple-600 rounded-full"></span>
+                    6. 油圧の制御とバルブ（機械の司令塔）
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="40" y="30" width="20" height="40" fill="#64748b"/>
+                            <path d="M50 30 V10" stroke="#ef4444" stroke-width="4"/>
+                            <path d="M35 15 L65 15 M35 20 L65 20" stroke="#94a3b8" stroke-width="2"/>
+                            <circle cx="50" cy="30" r="5" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">リリーフ弁 / 減圧弁 / アンロード</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：ヤカンの笛 / 蛇口の絞り</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        圧力が上がりすぎたら「逃がす(リリーフ)」、必要な分だけ「下げる(減圧)」。
+                        仕事がない時にポンプを休ませるのがアンロード。省エネと爆発防止の要。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" fill="#e2e8f0" stroke="#1e293b"/>
+                            <path d="M50 5 V30" stroke="#3b82f6" stroke-width="15">
+                                <animate attributeName="stroke-width" values="15;25;15" dur="1s" repeatCount="indefinite" />
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">プレフィル弁（満油弁）</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：ジョッキへの「ドバドバ」注ぎ</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        ラムが高速で降りる時、ポンプでは油が追いつかない。
+                        頭上の巨大タンクから重力で一気に油を吸い込ませるための、巨大な「ごくごく」飲口。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="30" y="20" width="40" height="60" fill="none" stroke="#64748b" stroke-width="2"/>
+                            <rect x="35" y="65" width="30" height="10" fill="#ef4444">
+                                <animate attributeName="fill-opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
+                            </rect>
+                            <text x="50" y="50" text-anchor="middle" fill="#ef4444" font-size="8">COUNTER FORCE</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">カウンタバランス弁</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：おもりの自重支え</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        何トンもあるスライドが、自重で勝手にドスンと落ちてこないように下から支える力。
+                        これがないと機械が自重で暴走してしまいます。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <rect x="20" y="40" width="60" height="20" fill="#94a3b8"/>
+                            <path d="M40 40 L40 60" stroke="#3b82f6" stroke-width="4"/>
+                            <text x="50" y="30" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="bold">WAIT FOR A!</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">シーケンス弁</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：順番待ちのゲート</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        「Aの動きが終わるまで、Bは動くな」という順序を守らせる。
+                        クランプ（固定）が完了してから加圧を開始する、といった「段取り」の守り神。
+                    </p>
+                </div>
+
+                <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="svg-container">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="35" fill="#475569"/>
+                            <path d="M50 50 L80 50" stroke="#3b82f6" stroke-width="5"/>
+                            <text x="50" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">TANK</text>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-purple-700 mb-2">アキュムレータ</h3>
+                    <div class="flex gap-2 mb-3"><span class="meta-badge">例：油圧の「充電式電池」</span></div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <span class="logic-badge">ロジック</span><br>
+                        油の圧力を溜めておく。
+                        瞬間的に巨大なパワーが必要な時や、ポンプが止まった時のバックアップとして機能する「貯金箱」。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Definition of markers for SVG arrows -->
+    <svg width="0" height="0">
+        <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" />
+            </marker>
+        </defs>
+    </svg>
+
+    <footer class="max-w-7xl mx-auto mt-20 pt-10 border-t border-slate-200 text-center text-slate-400 text-xs pb-10">
+        <p>油圧プレス技術者向け学習リファレンス</p>
+        <p class="mt-2 text-slate-500 italic">「図」で捉え、「言葉」で意味を繋げば、知識は現場で「使える道具」に変わります。</p>
+    </footer>
+
+    <script>
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = target.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
