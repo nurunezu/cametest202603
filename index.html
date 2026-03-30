@@ -13,10 +13,10 @@
         .svg-container { background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; padding: 20px; margin-bottom: 15px; min-height: 140px; }
         .meta-badge { background: #dcfce7; color: #166534; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
         .logic-badge { background: #fee2e2; color: #991b1b; font-weight: bold; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
-        .category-header { position: sticky; top: 0; z-index: 50; background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
+        .category-header { position: sticky; top: 0; z-index: 40; background: rgba(248, 250, 252, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-8 relative">
 
     <header class="max-w-7xl mx-auto mb-12 text-center">
         <div class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4 shadow-lg uppercase tracking-widest">Hydraulic Press Visual Glossary</div>
@@ -585,13 +585,20 @@
 
     </main>
 
+    <!-- 一番上に戻るボタン -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-2xl opacity-0 invisible transition-all duration-300 hover:bg-blue-700 z-50 focus:outline-none" title="最上部へ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <!-- Definition of markers for SVG arrows -->
     <svg width="0" height="0">
         <defs>
             <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
                 <path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" />
             </marker>
-        </defs>
+        defs>
     </svg>
 
     <footer class="max-w-7xl mx-auto mt-20 pt-10 border-t border-slate-200 text-center text-slate-400 text-xs pb-10">
@@ -600,7 +607,7 @@
     </footer>
 
     <script>
-        // Smooth scroll implementation
+        // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -617,6 +624,26 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // トップに戻るボタンの表示制御
+        const backToTopBtn = document.getElementById('backToTop');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        };
+
+        // ボタンクリックで最上部へ
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
